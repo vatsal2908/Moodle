@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sign-up</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    form {
+      margin: auto;
+      width: 50%;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="button"] {
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    input[type="button"]:hover {
+      background-color: #45a049;
+    }
+    p {
+      text-align: center;
+      margin-top: 20px;
+    }
+    a {
+      color: #4CAF50;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Sign Up</h1>
+  <form id="signup-form">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="u_name">
+    <br><br>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <br><br>
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <br><br>
+    
+    <label for="confirm-password">Confirm Password:</label>
+    <input type="password" id="confirm-password" name="confirm-password" required>
+    <br><br>
+    <input type="button" onclick="return oksubmit()" value="Signup">
+  </form>
+  <p>Already signed in : <a href="C:\Nirma\WT\Innovative\WT-Innovative-Moodle\Moodle\registration_form-login_form\index.html">Login</a></p>
+  <script>
+
+        function oksubmit() {
+            const username = document.getElementById("username").value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const con_pass = document.getElementById('confirm-password').value;
+          
+            // Checking constraints for username
+            if (username.length < 5 || username.length > 30) {
+              alert('Username must be between 5 and 30 characters.');
+              return false;
+            }
+          
+            // Checking constraints for email
+            if (!email.includes('@') || !email.includes('.')) {
+              alert('Please enter a valid email address.');
+              return false;
+            }
+          
+            // Checking constraints for password
+            if (password.length < 8) {
+              alert('Password must be at least 8 characters.');
+              return false;
+            } 
+          
+            // Checking if password and confirm password match
+            if (password != con_pass) {
+              alert('Password and Confirm Password do not match.');
+              return false;
+            }
+          
+            // If all constraints are satisfied, store the user details in local storage
+            localStorage.setItem('username', username);
+            localStorage.setItem('password', password);
+            localStorage.setItem('email', email);
+          
+            alert('Signup successful!');
+            window.location.href = "C:\\Nirma\\WT\\Innovative\\WT-Innovative-Moodle\\Moodle\\registration_form-login_form\\index.html";
+          }
+          
+    
+
+    /*
+    if(username.trim() !== '' && password.length >=8 && password === con_pass)
+    {
+        alert('Signup successful!');
+      window.location.href = "C:\\Nirma\\WT\\Innovative\\Moodle-20230505T045838Z-001\\Moodle\\registration_form-login_form\\index.html";
+    }*/
+  
+  </script>
+</body>
+
+</html>
